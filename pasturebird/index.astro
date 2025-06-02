@@ -1,105 +1,129 @@
 ---
-import Header from './Header/index.astro'
-import HeaderTop from './HeaderTop/index.astro'
+import Header from "./Header/index.astro";
+import HeaderTop from "./HeaderTop/index.astro";
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pasturebird</title>
-</head>
-<body>
-    <HeaderTop/>
-    <Header/>
-    
-</body>
+  </head>
+  <body>
+    <HeaderTop />
+    <Header />
+  </body>
 </html>
 
-<style is:global >
-    
-*, *::before, *::after {
+<style is:global>
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
+  }
 
-
-ul, ol {
+  ul,
+  ol {
     list-style: none;
-}
+  }
 
-
-a {
+  a {
     text-decoration: none;
     color: inherit;
-}
+  }
 
-
-h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: normal;
-}
+  }
 
-
-img, picture, video, canvas, svg {
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
     display: block;
     max-width: 100%;
-}
+  }
 
-
-button, input, textarea, select {
+  button,
+  input,
+  textarea,
+  select {
     font: inherit;
     border: none;
     background: none;
     outline: none;
-}
+  }
 
-table {
+  table {
     border-collapse: collapse;
     border-spacing: 0;
-}
+  }
 
-:root{
-    --font-body:"Gill Sans Extrabold", sans-serif;
+  :root {
+    --font-body: "Gill Sans Extrabold", sans-serif;
     scroll-behavior: smooth;
-}
-html {
-    font-size: 62.5%; /* 1rem = 10px */
-}
-html,body{
+    --color-primary:#556224;
+  }
+  html {
+    /* font-size: 62.5%; 1rem = 10px */
+     font-size: calc(100vw / 50); 
+  }
+  html,
+  body {
     display: block;
     width: 100%;
     overflow-x: hidden;
-}
-body {
+  }
+  body {
     line-height: 1.3;
     font-family: sans-serif;
-    font-size: calc(100vw / 500); /* 16px */
+    font-size: 1.6rem; /* 16px */
     font-family: var(--font-body);
-}
-@media (max-width: 120em) { /* 1920px */
+  }
 
-}
-@media (max-width: 94em) { /* 1504px */
+  .container,
+  .container-fluid {
+    display: block;
+    margin: 0 auto;
+    width: 94%;
+  }
+  .container {
+    width: 94%;
+  }
+  @media (max-width: 120em) {
+    /* 1920px */
+  }
+  @media (max-width: 94em) {
+    /* 1504px */
+  }
 
-}
+  @media (max-width: 75em) {
+    /* 1200px */
+  }
 
-@media (max-width: 75em) { /* 1200px */
+  @media (max-width: 62em) {
+    /* 992px */
+  }
 
-}
+  @media (max-width: 48em) {
+    /* 768px */
+  }
 
-@media (max-width: 62em) { /* 992px */
+  @media (max-width: 30em) {
+    /* 480px */
+  }
+  @media (max-width: 30em) {
+    /* 480px */
+  }
 
-}
 
-@media (max-width: 48em) { /* 768px */
-
-}
-
-@media (max-width: 30em) { /* 480px */
-
-}
-@media (max-width: 30em) { /* 480px */
-
-}
 </style>
