@@ -1,6 +1,76 @@
 ---
 
 ---
-<div>
-    
+
+<div class="menu-mobile">
+  <div class="menu-mobile__bg js-toggle-expand"></div>
+  <div class="menu-mobile__content">
+    <ul>
+      <li>
+        <a href=""> Home </a>
+      </li>
+      <li>
+        <a href=""> Shop </a>
+      </li>
+      <li>
+        <a href=""> Why Pasturebird </a>
+      </li>
+      <li>
+        <a href=""> Tour Our Farm </a>
+      </li>
+      <li>
+        <a href=""> For the Next Generation </a>
+      </li>
+      <li>
+        <a href=""> Rewards </a>
+      </li>
+    </ul>
+  </div>
 </div>
+<style lang="scss">
+  .menu-mobile__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000003b;
+    z-index: 100;
+    display: none;
+  }
+  .menu-mobile__content {
+    position: fixed;
+    top: 0;
+    left: -110%;
+    width: 90%;
+    max-width: 30rem;
+    height: 100%;
+    background: white;
+    z-index: 101;
+    transition: left 0.3s linear;
+    padding-top: calc(
+      var(--height-header-top) + var(--height-header-main) + 2rem
+    );
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+    a{
+      display: block;
+      width: 100%;
+      padding: 1rem 0.5rem;
+      border-radius: 0.8rem;
+      &:hover{
+        color: var(--color-primary);
+        background: #f1f1f1;
+      }
+    }
+  }
+  :global(.expand) {
+    .menu-mobile__bg {
+      display: block;
+    }
+    .menu-mobile__content {
+      left: 0;
+    }
+  }
+</style>
