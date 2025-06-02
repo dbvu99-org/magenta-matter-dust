@@ -58,7 +58,11 @@ import MenuMobile from './MenuMobile.astro'
   .header {
     position: sticky;
     background: white;
-    padding: 2rem 0;
+    z-index: 102;
+    height: var(--height-header-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .header_content {
     display: grid;
