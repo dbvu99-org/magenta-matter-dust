@@ -1,6 +1,90 @@
 ---
-
+import logo from "./logo.webp";
 ---
-<header>
-    this is header
+
+<header class="header">
+  <div class="container">
+    <div class="header_content">
+      <div class="header_left">
+        <button class="js-toggle-expand"> </button>
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            ></path></svg
+          >
+        </button>
+      </div>
+      <div class="header_center">
+        <a href="">
+          <img src={logo.src} alt="logo" />
+        </a>
+      </div>
+      <div class="header_right">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+            >
+            <path
+              d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"
+            ></path></svg
+          >
+        </button>
+        <button>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+            class="icon icon-modern-cart"
+            viewBox="0 0 30 30"
+            ><path
+              d="M15 3a6 6 0 015.996 5.775L21 9v1h5a1 1 0 01.993.883L27 11v16a1 1 0 01-.883.993L26 28H4a1 1 0 01-.993-.883L3 27V11a1 1 0 01.883-.993L4 10h5V9a6 6 0 016-6zm10 9h-4v4a1 1 0 01-1.993.117L19 16v-4h-8v4a1 1 0 01-1.993.117L9 16v-4H5v14h20V12zM15 5a4 4 0 00-3.995 3.8L11 9v1h8V9a4 4 0 00-4-4z"
+            ></path></svg
+          >
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
+<style lang="scss">
+  svg{
+    display: block;
+    width: 2.6rem;
+   
+  }
+  .header{
+    position: sticky;
+    background: white;
+     padding: 2rem 0;
+  }
+  .header_content{
+    display: grid;
+    grid-template-columns:1fr auto 1fr ;
+    align-items: center;
+    gap:1rem
+  }
+  .header_center{
+    max-width: 20rem;
+  }
+  .header_right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header_left{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll(".js-toggle-expand");
+
+    toggleButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        document.documentElement.classList.toggle("expand");
+      });
+    });
+  });
+</script>
