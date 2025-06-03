@@ -1,0 +1,122 @@
+---
+import "flickity/css/flickity.css";
+import img from "./img.jpg";
+---
+
+<section>
+  <div class="container">
+    <h3 class="title">SHOP PASTURE RAISED CHICKEN</h3>
+    <div
+      class="main-carousel"
+      data-flickity={JSON.stringify({
+        cellAlign: "left",
+        contain: true,
+        prevNextButtons: false,
+        pageDots: false,
+        cellSpacing: 20,
+      })}
+    >
+      {
+        [...Array(10)].map((_, index) => (
+          <article class="carousel-cell item">
+            <div class="thumbnail">
+              <img src={img.src} alt="" />
+            </div>
+
+            <h3>Pasturebird T-shirts</h3>
+            <p class="price">$25.99</p>
+            <div class="star">
+              {[...Array(5)].map((_, index) => (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 18 18"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="star-container yotpo-sr-star-full"
+                  style="display: flex; flex-direction: row; margin-inline-end: 3.5px;"
+                  width="15"
+                  height="15"
+                >
+                  <defs>
+                    <linearGradient id="yotpo_stars_gradient_0.06451321449330782">
+                      <stop offset="100%" stop-color="#AC723B" />
+                      <stop
+                        stop-opacity="1"
+                        offset="100%"
+                        stop-color="#FFFFFF"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    style="pointer-events: none;"
+                    d="M9 14.118L14.562 17.475L13.086 11.148L18 6.891L11.529 6.342L9 0.375L6.471 6.342L0 6.891L4.914 11.148L3.438 17.475L9 14.118Z"
+                    stroke="#AC723B"
+                    fill="url('#yotpo_stars_gradient_0.06451321449330782')"
+                  />
+                </svg>
+              ))}
+            </div>
+            <p class="reviews">4 Reviews</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="block-button">
+      <a href="">Shop All</a>
+    </div>
+  </div>
+</section>
+<script>
+  import "flickity";
+</script>
+<style lang="scss">
+  .item {
+    width: 85%;
+    margin-right: 2rem;
+    .thumbnail {
+      margin-bottom: 1rem;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    h3 {
+      font-size: 1.8rem;
+      color: black;
+      font-weight: bold;
+    }
+    .reviews,
+    .price {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+    }
+    .star {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+  }
+  section {
+    padding: 7rem 0;
+  }
+  .title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+  }
+  .block-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    a {
+      background: var(--color-primary);
+      color: white;
+      padding: 1rem 3rem;
+      border-radius: 1rem;
+      font-weight: bold;
+    }
+  }
+</style>
