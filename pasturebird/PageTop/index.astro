@@ -1,0 +1,57 @@
+---
+
+---
+
+<button onclick="scrollToTop()" id="scrollTopBtn" class="page-top"> </button>
+<style lang="scss">
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    display: none; /* Ẩn mặc định */
+    z-index: 999;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
+  }
+
+  #scrollTopBtn.show {
+    display: block;
+  }
+  .page-top::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-color: currentcolor;
+    border-style: solid;
+    border-width: 0 0 0.1rem 0.1rem;
+    margin: 0;
+    vertical-align: middle;
+    transform: rotate(135deg);
+    transform-origin: 50% 50%;
+    transition: all 0.3s;
+  }
+</style>
+<script>
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add("show");
+    } else {
+      scrollTopBtn.classList.remove("show");
+    }
+  });
+
+   scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>
