@@ -1,7 +1,8 @@
 ---
 import Header from "./Header/index.astro";
 import HeaderTop from "./HeaderTop/index.astro";
-import SectionHero from './SectionHero/index.astro'
+import SectionHero from "./SectionHero/index.astro";
+import Section1 from "./Section1/index.astro";
 ---
 
 <!doctype html>
@@ -14,7 +15,8 @@ import SectionHero from './SectionHero/index.astro'
   <body>
     <HeaderTop />
     <Header />
-    <SectionHero/>
+    <SectionHero />
+    <Section1 />
   </body>
 </html>
 
@@ -71,15 +73,18 @@ import SectionHero from './SectionHero/index.astro'
   }
 
   :root {
-    --font-body: "Gill Sans Extrabold", sans-serif;
+    --font-body: "Inter", sans-serif;
     scroll-behavior: smooth;
-    --color-primary:#556224;
-    --height-header-top:3.5rem;
-    --height-header-main:8rem;
+    --color-primary: #556224;
+    --height-header-top: 3.5rem;
+    --height-header-main: 8rem;
+    --color-text-dark: #000000;
+    --color-text: #1d220a;
+    --color-text-light: #606351;
   }
   html {
     /* font-size: 62.5%; 1rem = 10px */
-     font-size: calc(100vw / 50); 
+    font-size: calc(100vw / 50);
   }
   html,
   body {
@@ -128,6 +133,4 @@ import SectionHero from './SectionHero/index.astro'
   @media (max-width: 30em) {
     /* 480px */
   }
-
-
 </style>
