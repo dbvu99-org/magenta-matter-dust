@@ -1,0 +1,61 @@
+---
+import img1 from "./img1.jpeg";
+import img2 from "./img2.jpg";
+import img3 from "./img3.jpg";
+---
+
+<section>
+  {
+    [
+      {
+        title: `MOVEMENT MAKES FOR  <span>HEALTHIER</span>  BIRDS`,
+        text: "Our pasture raised chicken lives the majority of their lives on fresh pasture, eating bugs, grains, grass and legumes. They are moved daily to increase the amount of green forage and proteins the birds consume. They are free to explore, scratch and forage. At night, they are moved into coops for shelter from predators.",
+        img: img1.src,
+      },
+      {
+        title: `MOVEMENT MAKES FOR HEALTHIER   <span>SOIL</span> `,
+        text: "Daily movement improves the soil health. Manure enriches the soil and prevents diseased pastures. Pastured poultry regenerates pasture, builds soil and gives back to the land.",
+        img: img2.src,
+      },
+      {
+        title: `MOVEMENT MAKES FOR HEALTHIER <span>PEOPLE</span>`,
+        text: "A varied diet of bugs, grass, legumes, and grains contributes to the health, taste, and nutrition of the final product. Pasturebird chicken has higher vitamin, mineral and fatty acid content than traditional chicken, and is always non-GMO and antibiotic-free.",
+        img: img3.src,
+      },
+    ].map((item) => (
+      <article>
+        <img src={item.img} alt={item.title} />
+        <div class="container content">
+          <h3 set:html={item.title} />
+          <p>{item.text}</p>
+        </div>
+      </article>
+    ))
+  }
+</section>
+
+<style lang="scss">
+  article {
+    background: var(--bg1);
+    img {
+      display: block;
+      width: 100%;
+    }
+    .content {
+      text-align: center;
+      padding: 6rem 0;
+      h3 {
+        font-size: 4.2rem;
+        font-weight: bold;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        :global(span) {
+          color: var(--color-secondary);
+        }
+      }
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+</style>
