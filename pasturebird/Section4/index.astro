@@ -1,0 +1,53 @@
+---
+
+---
+
+<section class="carousel-marquee">
+  <div class="carousel-track">
+    {
+      [...Array(10)].map((_, index) => (
+        <>
+          <p class="carousel-cell">REGENERATES SOIL & FARMLAND</p>
+          <p class="carousel-cell">HUMANELY RAISED</p>
+        </>
+      ))
+    }
+  </div>
+</section>
+<style lang="scss">
+  .carousel-marquee {
+    overflow: hidden;
+    width: 100%;
+   
+     background: var(--color-primary);
+     padding: 2rem 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    animation: scrollLeft 20s linear infinite;
+  }
+
+  .carousel-marquee:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  .carousel-cell {
+    min-width: 100vw;
+    margin-right: 1rem;
+    border-radius: 0.8rem;
+    flex-shrink: 0;
+     color: white;
+     font-size: 1.8rem;
+     font-weight: bold;
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
