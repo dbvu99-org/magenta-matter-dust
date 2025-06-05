@@ -16,7 +16,7 @@ import Logo from "../Logo/index.astro";
 <header class="header">
   <div class="container-fluid">
     <div class="header-content">
-      <ul>
+      <ul class="menus">
         <li>
           <Logo />
         </li>
@@ -30,11 +30,11 @@ import Logo from "../Logo/index.astro";
           ))
         }
       </ul>
-      <ul>
+      <ul class="socials">
         {
           socials.map((item) => (
             <li>
-              <a set:html={item.icon} href={item.href}></a>
+              <a set:html={item.icon} href={item.href} />
             </li>
           ))
         }
@@ -42,3 +42,33 @@ import Logo from "../Logo/index.astro";
     </div>
   </div>
 </header>
+
+<style lang="scss">
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .menus {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    a{
+        font-size: 1.6rem;
+        text-transform: uppercase;
+  font-weight: 400;
+  color: black;
+    }
+  }
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    a{
+        font-size: 2.2rem;
+    }
+    
+  }
+
+</style>
