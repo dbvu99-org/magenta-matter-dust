@@ -5,8 +5,9 @@ type Props = {
 const { className } = Astro.props;
 ---
 
+<a href="/" class={className}>
 <svg
-  class={className}
+  
   xmlns="http://www.w3.org/2000/svg"
   version="1.1"
   id="Layer_1"
@@ -42,6 +43,7 @@ const { className } = Astro.props;
     </g>
   </g>
 </svg>
+</a>
 <style>
   .st0 {
     fill: #00adee;
