@@ -1,0 +1,105 @@
+---
+type Props = {
+  menus: {
+    href: string;
+    text: string;
+  }[];
+  socials: {
+    href: string;
+    icon: string;
+  }[];
+};
+const { menus, socials } = Astro.props;
+---
+
+<article class="menu-mobile">
+  <ul class="menus">
+    {
+      menus.map((item) => (
+        <li>
+          <a href={item.href} target="_blank">
+            {item.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <ul class="socials">
+    {
+      socials.map((item) => (
+        <li>
+          <a set:html={item.icon} href={item.href} />
+        </li>
+      ))
+    }
+  </ul>
+</article>
+<style>
+  .menu-mobile {
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: -110%;
+    bottom: 0;
+    min-height: 100%;
+    overflow: auto;
+    width: 100%;
+    max-width: 32.5rem;
+    border-radius: 0;
+    z-index: 101;
+    transition: right 0.5s ease-in-out;
+    background: hsla(0, 0%, 100%, 0.85);
+    backdrop-filter: blur(1.55rem);
+    border: 0.1rem solid hsla(0, 0%, 100%, 0.18);
+    padding: 6rem 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: none;
+  }
+  .menus {
+    a {
+      display: flex;
+      justify-content: flex-end;
+      border-radius: 0rem;
+      width: 100%;
+      font-size: 1.75rem;
+      transition: 0.3s ease-in-out;
+      padding: 0.8rem 3.2rem 0.8rem 1.6rem;
+      font-size: 2.8rem;
+      &:hover {
+        background: var(--color-primary);
+        color: white;
+      }
+    }
+  }
+  .socials {
+    display: flex;
+    margin: 0 0.5rem;
+    justify-content: space-around;
+    a {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+      font-size: 2.2rem;
+      &:hover {
+        fill: var(--color-primary);
+      }
+    }
+  }
+  :global(html.expand) {
+    .menu-mobile {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 75em) {
+    /* 120rem */
+    .menu-mobile {
+      display: block;
+    }
+  }
+</style>
