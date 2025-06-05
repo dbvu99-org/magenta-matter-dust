@@ -6,12 +6,13 @@ import {
 import Layout from "../Layouts/Layout.astro";
 
 const { imageSliderAdvanced } = await getHomePageSettings();
+console.log('imageSliderAdvanced',imageSliderAdvanced[0])
 const {posts} = await getHomePagePosts();
-console.log("posts", posts);
+// console.log("posts", posts);
 ---
 
 <Layout>
-  <div
+  <section
     class="main-carousel"
     data-flickity={JSON.stringify({
       //   cellAlign: "left",
@@ -24,14 +25,26 @@ console.log("posts", posts);
   >
     {
       imageSliderAdvanced?.map((t) => (
-        <div class="carousel-cell item">
+        <a href={t?.href} class="carousel-cell item" target="_blank">
           <picture>
             <source media="(max-width:  48em)" srcset={t?.mobileVersion?.src} />
             <img src={t?.desktopVersion?.src} alt={t?.caption} />
           </picture>
-        </div>
+        </a>
       ))
     }
-  </div>
-  <div style="height: 100000vh;"></div>
+  </section>
+  <section>
+
+  </section>
 </Layout>
+<style>
+    .item{
+        display:block;
+        img,
+        picture{
+            display: block;
+            width: 100%;
+        }
+    }
+</style>
