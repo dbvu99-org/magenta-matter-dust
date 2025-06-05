@@ -1,0 +1,63 @@
+---
+
+---
+
+<head>
+  <link rel="stylesheet" href="https://use.typekit.net/swk5wto.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css"
+    integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8="
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
+    integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc="
+  />
+  <script is:inline>
+    window.addEventListener("scroll", (e) => {
+      window.pageYOffset > 0
+        ? document.body.classList.add("scrolled")
+        : document.body.classList.remove("scrolled");
+    });
+  </script>
+
+  <script
+    is:inline
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-EN270ELY00"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-EN270ELY00");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQPQ73769Q"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-SQPQ73769Q");
+  </script>
+
+  <script in:inline>
+    window._mfq = window._mfq || [];
+    (function () {
+      var mf = document.createElement("script");
+      mf.type = "text/javascript";
+      mf.defer = true;
+      mf.src =
+        "//cdn.mouseflow.com/projects/6ecd1c2e-b7ef-487c-a58b-0f1cd9cb956d.js";
+      document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+  </script>
+  <slot/>
+</head>
