@@ -40,15 +40,26 @@ import Logo from "../Logo/index.astro";
           ))
         }
       </ul>
-      <button class="header-button js-toggle-expand">
-        <span class="line1"></span>
-        <span class="line2"></span>
-      </button>
     </div>
   </div>
 </header>
-
+ <button class="header-button js-toggle-expand">
+    <span class="line1"></span>
+    <span class="line2"></span>
+  </button>
 <style lang="scss">
+ 
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-top: 0;
+    padding-bottom: 0.4rem;
+    box-shadow: 0 0 2.1rem -0.5rem rgba(0, 0, 0, 0.25);
+    background: white;
+  }
   .header-content {
     display: flex;
     align-items: center;
@@ -85,16 +96,16 @@ import Logo from "../Logo/index.astro";
     position: fixed;
     top: 0;
     left: auto;
-    right: 0;
-    z-index: 1000;
+    right: 1.6rem;
+    z-index: 110;
     appearance: none;
-    height: 50px;
-    width: 50px;
+    height: 5rem;
+    width: 5rem;
     cursor: pointer;
     span {
       content: "";
-      height: 2.5px;
-      width: 30px;
+      height: 0.25rem;
+      width: 3rem;
       position: absolute;
       top: 50%;
       background-color: rgb(0, 0, 0);
@@ -107,32 +118,32 @@ import Logo from "../Logo/index.astro";
     .line2 {
       transform: translateY(150%);
     }
-    &:hover{
-        span{
-              background-color:var(--color-primary)
-        }
-        .line1{
-            transform:translateY(150%)
-        }
-        .line2{
-             transform:translateY(-150%)
-        }
+    &:hover {
+      span {
+        background-color: var(--color-primary);
+      }
+      .line1 {
+        transform: translateY(150%);
+      }
+      .line2 {
+        transform: translateY(-150%);
+      }
     }
   }
-  :global(.expand) {
+  :global(html.expand) {
     .header-button {
       .line1 {
-       transform: translateY(0) rotate(135deg);
+        transform: translateY(0) rotate(135deg);
       }
 
       .line2 {
-       transform: translateY(0) rotate(-135deg);
+        transform: translateY(0) rotate(-135deg);
       }
     }
   }
 
   @media (max-width: 75em) {
-    /* 1200px */
+    /* 120rem */
     .socials,
     .menus {
       display: none;
@@ -142,14 +153,4 @@ import Logo from "../Logo/index.astro";
     }
   }
 </style>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggleButtons = document.querySelectorAll(".js-toggle-expand");
 
-    toggleButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        document.documentElement.classList.toggle("expand");
-      });
-    });
-  });
-</script>
