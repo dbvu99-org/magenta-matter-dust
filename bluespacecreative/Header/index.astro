@@ -1,6 +1,44 @@
 ---
-
+type Props = {
+  menus: {
+    href: string;
+    text: string;
+  }[];
+  socials: {
+    href: string;
+    icon: string;
+  }[];
+};
+const { menus, socials } = Astro.props;
+import Logo from "../Logo/index.astro";
 ---
-<header>
-    
+
+<header class="header">
+  <div class="container-fluid">
+    <div class="header-content">
+      <ul>
+        <li>
+          <Logo />
+        </li>
+        {
+          menus.map((item) => (
+            <li>
+              <a href={item.href} target="_blank">
+                {item.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ul>
+        {
+          socials.map((item) => (
+            <li>
+              <a set:html={item.icon} href={item.href}></a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </header>
