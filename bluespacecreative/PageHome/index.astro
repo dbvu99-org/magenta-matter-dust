@@ -1,6 +1,37 @@
 ---
-import Layout from '../Layouts/Layout.astro';
+import {
+  getHomePageSettings,
+  getHomePagePosts,
+} from "@clients/sanity/bluespacecreative/config";
+import Layout from "../Layouts/Layout.astro";
+
+const { imageSliderAdvanced } = await getHomePageSettings();
+const {posts} = await getHomePagePosts();
+console.log("posts", posts);
 ---
+
 <Layout>
-    <div style="height: 100000vh;" ></div>
+  <div
+    class="main-carousel"
+    data-flickity={JSON.stringify({
+      //   cellAlign: "left",
+      contain: true,
+      prevNextButtons: true,
+      pageDots: true,
+      autoPlay: 3000,
+      infinite: true,
+    })}
+  >
+    {
+      imageSliderAdvanced?.map((t) => (
+        <div class="carousel-cell item">
+          <picture>
+            <source media="(max-width:  48em)" srcset={t?.mobileVersion?.src} />
+            <img src={t?.desktopVersion?.src} alt={t?.caption} />
+          </picture>
+        </div>
+      ))
+    }
+  </div>
+  <div style="height: 100000vh;"></div>
 </Layout>
