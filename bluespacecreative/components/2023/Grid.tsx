@@ -68,15 +68,17 @@ export default function Grid({ posts = [] }) {
     </div>
   )
 }
+interface StyledPostProps {
+  css?: any;
+}
 
-
-const StyledPost = styled.div`
+const StyledPost = styled.div<StyledPostProps>`
   height: 0;
   position: relative;
   overflow: hidden;
   margin: 5px;
 
-  ${({ customCss }) => customCss && customCss};
+  ${({ css }) => css && css};
 
   & > * {
     position: absolute;
@@ -89,4 +91,25 @@ const StyledPost = styled.div`
     background-color: black;
   }
 `;
+
+// const StyledPost = styled('div')(
+//   {}
+//       height: 0;
+//   position: relative;
+//   overflow: hidden;
+//   margin: 5px;
+
+//   ${({ customCss }) => customCss && customCss};
+
+//   & > * {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: black;
+//   }
+// )
 
