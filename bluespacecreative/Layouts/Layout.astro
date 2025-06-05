@@ -2,6 +2,7 @@
 import Header from "../Header/index.astro";
 import Head from "../Head/index.astro";
 import MenuMobile from "../MenuMobile/index.astro";
+import "flickity/css/flickity.css";
 const menus = [
   {
     href: "/work",
@@ -227,6 +228,9 @@ const socials = [
   .container {
     max-width: 120rem;
   }
+  div.flickity-page-dots{
+    bottom: 1.6rem;
+  }
   @media (max-width: 120em) {
     /* 1920px */
   }
@@ -254,6 +258,7 @@ const socials = [
   }
 </style>
 <script>
+  import "flickity";
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButtons = document.querySelectorAll(".js-toggle-expand");
 
