@@ -3,7 +3,7 @@ import PostGridChildren from "./PostGridChildren.js"
 
 function PostGrid({ posts = [], filter = "all", _type = "all", keyword }:any) {
   const { data, loadingRef } = useLazyLoad({ posts, _type, filter })
-
+console.log('data',data)
   return (
     <>
       <PostGridChildren
