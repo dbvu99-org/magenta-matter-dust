@@ -1,6 +1,6 @@
 
 import Post from "./Post.js"
-
+import css from './PostGridChildren.module.scss'
 
 const includeKeyword = (searchPhrase = "", keyword = "") => (searchPhrase?.toLowerCase().includes(keyword) ? true : false)
 
@@ -20,7 +20,7 @@ function PostGridChildren({
        
       >
         <div>
-          <div>
+          <div className={css.grid}> 
             {data
               .filter((props, index) => {
                 const keywordSearch = keyword?.toLowerCase()
@@ -107,7 +107,7 @@ function PostGridChildren({
                 //   />
                 // )
                 return (
-                 <div key={index}>
+                 <div key={index} className={css.card} >
                     <pre>
                       {JSON.stringify(props, null, 2)}
                     </pre>
