@@ -97,14 +97,21 @@ function PostGridChildren({
               })
               .map((props, index) => {
                 // console.log("props", props)
+                // return (
+                //   <Post
+                //     //
+                //     filter={filter}
+                //     key={index}
+                //     index={index}
+                //     {...props}
+                //   />
+                // )
                 return (
-                  <Post
-                    //
-                    filter={filter}
-                    key={index}
-                    index={index}
-                    {...props}
-                  />
+                 <div key={index}>
+                    <pre>
+                      {JSON.stringify(props, null, 2)}
+                    </pre>
+                 </div>
                 )
               })}
             <LoadingBlock loadingRef={loadingRef} />
