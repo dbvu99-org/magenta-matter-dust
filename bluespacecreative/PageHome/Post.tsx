@@ -46,11 +46,6 @@ const MemoPost = ({
   const [activeSlug, setActiveSlug] = useState("")
   // console.log("activeslug", activeSlug);
 
-  const textShadow = "0 0 11px rgba(0, 0, 0, 0.85)"
-  const textShadowNews = `2px 2px 4px black !important`
-  const fontWeight600 = 600
-
-
   // const { query } = useRouter()
 const query =null
   useEffect(() => {
