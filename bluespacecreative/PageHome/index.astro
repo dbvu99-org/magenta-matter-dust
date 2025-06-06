@@ -8,7 +8,7 @@ import Layout from "../Layouts/Layout.astro";
 const { imageSliderAdvanced } = await getHomePageSettings();
 console.log('imageSliderAdvanced',imageSliderAdvanced[0])
 const {posts} = await getHomePagePosts();
-// console.log("posts", posts);
+console.log("posts", posts.length);
 ---
 
 <Layout>
