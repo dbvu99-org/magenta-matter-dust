@@ -1,0 +1,15 @@
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.card{
+width: 20rem;
+height: 20rem;
+overflow: hidden;
+padding: 2rem;
+border-radius: 4px;
+background: #000;
+
+}
