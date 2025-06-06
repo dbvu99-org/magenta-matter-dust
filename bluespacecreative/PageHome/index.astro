@@ -4,11 +4,11 @@ import {
   getHomePagePosts,
 } from "@clients/sanity/bluespacecreative/config";
 import Layout from "../Layouts/Layout.astro";
+import PostGrid from "./PostGrid.js";
 
 const { imageSliderAdvanced } = await getHomePageSettings();
 console.log('imageSliderAdvanced',imageSliderAdvanced[0])
 const {posts} = await getHomePagePosts();
-console.log("posts", posts.length);
 ---
 
 <Layout>
@@ -35,11 +35,7 @@ console.log("posts", posts.length);
     }
   </section>
   <section>
-<pre>
-    <code>
-        {JSON.stringify(posts[0], null, 2)}
-    </code>
-</pre>
+    <PostGrid posts={posts} client:load />
   </section>
 </Layout>
 <style>
