@@ -20,7 +20,7 @@ function PostGridChildren({
        
       >
         <div>
-          <div className={css.grid}> 
+          <div className={css.grid}  data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'> 
             {data
               .filter((props, index) => {
                 const keywordSearch = keyword?.toLowerCase()
@@ -107,10 +107,12 @@ function PostGridChildren({
                 //   />
                 // )
                 return (
-                 <div key={index} className={css.card} >
-                    <pre>
-                      {JSON.stringify(props, null, 2)}
-                    </pre>
+                 <div key={index} className={`${css.card} ${css[`col-${props?.col}`]} ${css[`row-${props?.row}`]} `} >
+                   <div  className={`${css.card_content}  `}>
+                    <p> {props?.brand}</p>
+                    <p> col {props?.col}</p>
+                    <p> row {props?.row}</p>
+                   </div>
                  </div>
                 )
               })}
