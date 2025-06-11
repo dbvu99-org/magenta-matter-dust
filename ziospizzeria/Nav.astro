@@ -40,13 +40,81 @@ import logo from "./logo.jpg";
       </a>
     </li>
     <li>
-      <button class="nav-mobile__bars" > 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+      <button class="nav-mobile__bars js-toggle-expand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+          ><path
+            d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+          ></path></svg
+        >
       </button>
     </li>
   </ul>
 </nav>
+<nav class="panel">
+  <div class="panel__bg js-toggle-expand"></div>
+  <div class="panel__content">
+    <div class="panel__content__top">
+      <form action="">
+        <input type="text" />
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            ></path></svg
+          >
+        </button>
+      </form>
+      <button class="js-toggle-expand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+          ></path></svg
+        >
+      </button>
+    </div>
+    <div class="panel__content__body">
+      <ul>
+        <li>
+          <a href="">MENU</a>
+        </li>
+        <li>
+          <a href="">DEALS</a>
+        </li>
+        <li>
+          <a href="">CATERING</a>
+        </li>
+        <li>
+          <a href="">PROMOS</a>
+        </li>
+        <li>
+          <a href="">LOCATIONS</a>
+        </li>
+        <li>
+          <a href="">ABOUT US</a>
+        </li>
+        <li>
+          <a href="">EMPLOYMENT</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll(".js-toggle-expand");
+
+    toggleButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        document.documentElement.classList.toggle("expand");
+      });
+    });
+  });
+</script>
 <style is:global>
+  #wrapper-body {
+    --width-panel: 28rem;
+  }
+  .panel,
   .nav-mobile {
     display: none;
   }
@@ -88,30 +156,107 @@ import logo from "./logo.jpg";
     padding: 1rem 3rem;
     background: white;
   }
-  .nav-mobile .logo{
+  .nav-mobile .logo {
     display: block;
     max-width: 13rem;
     padding-top: 0;
   }
-  .nav-mobile__menus{
+  .nav-mobile__menus {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .nav-mobile__bars{
+  .nav-mobile__bars {
     display: block;
     cursor: pointer;
   }
-  .nav-mobile__bars svg{
+  .nav-mobile__bars svg {
     display: block;
     width: 3rem;
     fill: black;
+  }
+
+  .panel__content {
+    position: fixed;
+    top: 0;
+    left: calc(-1 * var(--width-panel));
+    width: var(--width-panel);
+    z-index: 105;
+    color: white;
+    background: black;
+  }
+  .panel__bg {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    right: 0;
+    width: var(--width-panel);
+    z-index: 101;
+
+    background: black;
+    opacity: 0.4;
+  }
+  .panel__content__top {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 3rem 1rem 3rem 1rem;
+  }
+  .panel__content__top form {
+    position: relative;
+    display: flex;
+  }
+  .panel__content__top svg {
+    display: block;
+    fill: rgba(255, 255, 255, 0.455);
+    width: 1.8rem;
+  }
+  .panel__content__top input {
+    background: #333333;
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.8rem;
+  }
+  .panel__content__top form button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.6rem;
+  }
+  .panel__content__top button:hover svg {
+    fill: white;
+  }
+  .panel__content__body ul {
+    padding: 0 1rem 2rem;
+  }
+  .panel__content__body ul a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: bold;
+    opacity: 0.8;
+  }
+  .panel__content__body ul a:hover {
+    opacity: 1;
+  }
+  html.expand #wrapper-body {
+    transform: translateX(var(--width-panel));
+  }
+  #wrapper-body {
+    transition: all 0.3s linear;
   }
   @media (max-width: 75em) {
     /* 1200px */
     .nav {
       display: none;
     }
+    .panel,
     .nav-mobile {
       display: block;
     }
