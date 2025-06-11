@@ -1,65 +1,119 @@
 ---
-import logo from './logo.jpg'
+import logo from "./logo.jpg";
 ---
-<nav class="nav" >
-    <ul class="menus" >
-        <li>
-            <a href="">MENU</a>
-        </li>
-        <li>
-            <a href="">DEALS</a>
-        </li>
-        <li>
-            <a href="">CATERING</a>
-        </li>
-        <li>
-            <a href="">PROMOS</a>
-        </li>
-        <li>
-            <a href="/" class="logo" >
-                <img src={logo.src} alt="Logo">
-            </a>
-        </li>
-        <li>
-            <a href="">LOCATIONS</a>
-        </li>
-        <li>
-            <a href="">ABOUT US</a>
-        </li>
-        <li>
-            <a href="">EMPLOYMENT</a>
-        </li>
-    </ul>
-</nav>
 
-<style>
-.nav{
+<nav class="nav">
+  <ul class="menus">
+    <li>
+      <a href="">MENU</a>
+    </li>
+    <li>
+      <a href="">DEALS</a>
+    </li>
+    <li>
+      <a href="">CATERING</a>
+    </li>
+    <li>
+      <a href="">PROMOS</a>
+    </li>
+    <li>
+      <a href="/" class="logo">
+        <img src={logo.src} alt="Logo" />
+      </a>
+    </li>
+    <li>
+      <a href="">LOCATIONS</a>
+    </li>
+    <li>
+      <a href="">ABOUT US</a>
+    </li>
+    <li>
+      <a href="">EMPLOYMENT</a>
+    </li>
+  </ul>
+</nav>
+<nav class="nav-mobile">
+  <ul class="nav-mobile__menus">
+    <li>
+      <a href="/" class="logo">
+        <img src={logo.src} alt="Logo" />
+      </a>
+    </li>
+    <li>
+      <button class="nav-mobile__bars" > 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+      </button>
+    </li>
+  </ul>
+</nav>
+<style is:global>
+  .nav-mobile {
+    display: none;
+  }
+  .nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     color: white;
-}
-.nav .menus{
+  }
+  .nav .menus {
     display: flex;
     justify-content: center;
     gap: 2rem;
-
-}
-.nav .menus a{
+  }
+  .nav .menus a {
     display: block;
     padding-top: 2rem;
     font-weight: bold;
     font-size: 1.8rem;
-}
-.nav .menus .logo{
+  }
+  .nav .menus .logo {
     display: block;
     max-width: 20rem;
-     padding-top: 0;
-}
-.nav .menus .logo img{
+    padding-top: 0;
+  }
+  .nav .menus .logo img {
     display: block;
-}
+  }
 
+  .nav-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    color: white;
+    padding: 1rem 3rem;
+    background: white;
+  }
+  .nav-mobile .logo{
+    display: block;
+    max-width: 13rem;
+    padding-top: 0;
+  }
+  .nav-mobile__menus{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-mobile__bars{
+    display: block;
+    cursor: pointer;
+  }
+  .nav-mobile__bars svg{
+    display: block;
+    width: 3rem;
+    fill: black;
+  }
+  @media (max-width: 75em) {
+    /* 1200px */
+    .nav {
+      display: none;
+    }
+    .nav-mobile {
+      display: block;
+    }
+  }
 </style>
